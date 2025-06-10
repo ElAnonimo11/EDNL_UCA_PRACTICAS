@@ -1,6 +1,7 @@
 #ifndef _ABIN_HPP_
 #define _ABIN_HPP_
 
+#include <algorithm>
 #include <cassert>
 #include <cstddef>
 #include <utility>
@@ -35,6 +36,11 @@ class Abin
         Abin& operator=(const Abin& A);
         ~Abin();
 
+        /*Ejercicio 5 : P1*/
+        int altura_nodo(nodo n) const;
+        int profundidad_nodo(nodo n) const;
+        /*************/
+
     private:
         struct celda {
             T elto;
@@ -45,6 +51,10 @@ class Abin
 
         nodo copiar(nodo n);
         void destruir(nodo& n);
+
+        /*Ejercicio 5 : P1*/
+        int altura_nodo_rec(nodo n) const;
+        /*************/
 };
 
 template <typename T>
@@ -213,4 +223,31 @@ void Abin<T>::destruir(nodo& n)
     }
 }
 
+/*P1 Ej5 */
+template <typename T>
+int Abin<T>::altura_nodo(nodo n) const
+{
+    assert(n != NODO_NULO);
+    return altura_nodo_rec(n);
+}
+
+template <typename T>
+int Abin<T>::altura_nodo_rec(nodo n) const
+{
+    if (n == NODO_NULO) return -1;
+    else return 1 + std::max(altura_nodo_rec(n->hizq),altura_nodo_rec(n->hder));
+}
+
+template <typename T>
+int Abin<T>::profundidad_nodo(nodo n) const
+{
+    assert(n != NODO_NULO);
+    int cont = 0;
+    while (n->padre != NODO_NULO) {
+        ++cont;
+        n = n->padre;
+    }
+    return cont;
+}
+/*****/
 #endif

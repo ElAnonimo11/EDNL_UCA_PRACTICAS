@@ -2,7 +2,6 @@
 #define _EJERCICIO_3_P1_HPP_
 
 #include "../../../Abin.hpp"
-#include <cstddef>
 
 /* Implementa un subprograma que, dados un árbol binario y un nodo del mismo, determine
  * la profundidad de este nodo en dicho árbol.  */
