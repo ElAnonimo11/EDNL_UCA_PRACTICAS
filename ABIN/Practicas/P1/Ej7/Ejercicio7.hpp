@@ -14,12 +14,8 @@ template <typename T>
 bool pseudo_Abin_rec(const Abin<T>& A,typename Abin<T>::nodo n,int alt_act)
 {
     if (n == Abin<T>::NODO_NULO) return true;
-    else if (alt_act == 1) {
-        return (A.hijoIzqdo(n) == Abin<T>::NODO_NULO) == (A.hijoDrcho(n) == Abin<T>::NODO_NULO);    // xnor en el penultimo nivel si hay dos
-    }
-    else {
-        return pseudo_Abin_rec(A, A.hijoIzqdo(n), alt_act - 1) && pseudo_Abin_rec(A, A.hijoDrcho(n), alt_act - 1);
-    }
+    else if (alt_act == 1) return (A.hijoIzqdo(n) == Abin<T>::NODO_NULO) == (A.hijoDrcho(n) == Abin<T>::NODO_NULO);    // xnor en el penultimo nivel si hay dos
+    else return pseudo_Abin_rec(A, A.hijoIzqdo(n), alt_act - 1) && pseudo_Abin_rec(A, A.hijoDrcho(n), alt_act - 1);
 }
 
 template <typename T>
