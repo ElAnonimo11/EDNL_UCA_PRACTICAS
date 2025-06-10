@@ -3,8 +3,10 @@
 
 #include "../../../Abin.hpp"
 
-/* Implementa un subprograma que, dados un árbol binario y un nodo del mismo, determine
- * la profundidad de este nodo en dicho árbol.  */
+/*
+ * Implementa un subprograma que, dados un árbol binario y un nodo del mismo, determine
+ * la profundidad de este nodo en dicho árbol.
+ */
 
 template<typename T>
 int profundidad_Abin(const Abin<T>& A,typename Abin<T>::nodo n)

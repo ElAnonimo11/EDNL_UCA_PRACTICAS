@@ -3,7 +3,9 @@
 
 #include "../../../Abin.hpp"
 
-/*Implementa un subprograma que calcule el número de nodos de un árbol binario */
+/*
+ * Implementa un subprograma que calcule el número de nodos de un árbol binario
+ */
 
 template<typename T>
 int num_nodos_rec(const Abin<T>& A,typename Abin<T>::nodo n)

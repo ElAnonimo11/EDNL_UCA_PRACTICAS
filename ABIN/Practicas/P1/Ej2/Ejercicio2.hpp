@@ -4,7 +4,9 @@
 #include "../../../Abin.hpp"
 #include <algorithm>
 
-/*Implementa un subprograma que calcule la altura de un árbol binario.  */
+/*
+ * Implementa un subprograma que calcule la altura de un árbol binario.
+ */
 
 template <typename T>
 int altura_abin_rec(const Abin<T>& A,typename Abin<T>::nodo n)
