@@ -2,7 +2,6 @@
 #define _EJERCICIO_7_P1_HPP_
 
 #include "../../../Abin.hpp"
-#include <algorithm>
 #include <cstdlib>
 
 /*
