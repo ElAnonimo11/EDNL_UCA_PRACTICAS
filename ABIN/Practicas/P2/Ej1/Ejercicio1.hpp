@@ -13,13 +13,15 @@
 template <typename T>
 bool es_similar_Abin_rec(const Abin<T>& A,typename Abin<T>::nodo nA,const Abin<T>& B,typename Abin<T>::nodo nB)
 {
-
+    if (nA == Abin<T>::NODO_NULO || nB == Abin<T>::NODO_NULO) return nA == Abin<T>::NODO_NULO && nB == Abin<T>::NODO_NULO;
+    else return es_similar_Abin_rec(A, A.hijoIzqdo(nA), B, B.hijoIzqdo(nB)) &&
+                es_similar_Abin_rec(A, A.hijoDrcho(nA), B, B.hijoDrcho(nB));
 }
 
 template <typename T>
 bool es_similar_Abin(const Abin<T>& A,const Abin<T>& B)
 {
-    return es_similar_Abin_rec(A, A.raiz(), B, B.raiz());
+    return es_similar_Abin_rec(A, A.raiz(), B, B.raiz());   // Como comprobamos los nulos de primeras, los dos vacios se tomaran bien
 }
 
 #endif
