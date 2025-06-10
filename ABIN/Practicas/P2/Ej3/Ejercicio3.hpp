@@ -4,6 +4,7 @@
 #include "../../../Abin.hpp"
 #include <iostream>
 #include <istream>
+#include <string>
 
 /*
  * El TAD árbol binario puede albergar expresiones matemáticas mediante un árbol de
@@ -32,7 +33,15 @@ struct Oper
 
 inline std::istream& operator>>(std::istream& is,Oper& op)
 {
-
+    std::string str;
+    is >> str;
+    try {
+        op.num = std::stod(str);
+        op.es_num = true;
+    } catch (...) {
+        op.es_num = false;
+        op.ope = str[0];
+    }
     return is;
 }
 
