@@ -16,8 +16,8 @@ int nivel_desequilibrio_rec(const Abin<T>& A,typename Abin<T>::nodo n)
 {
     if(n == Abin<T>::NODO_NULO) return 0;
     else {
-        int hi = 0,
-            hd = 0;
+        int hi = -1,
+            hd = -1;
         if (A.hijoIzqdo(n) != Abin<T>::NODO_NULO) hi = A.altura_nodo(A.hijoIzqdo(n));
         if (A.hijoDrcho(n) != Abin<T>::NODO_NULO) hd = A.altura_nodo(A.hijoDrcho(n));
         return std::max({
