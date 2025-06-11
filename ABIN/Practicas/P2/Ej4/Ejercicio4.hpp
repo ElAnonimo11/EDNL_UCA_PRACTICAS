@@ -32,10 +32,22 @@ class Abin
 
         Abin(size_t max_prof);
 
+        void insertarRaiz(const T& e);
+        void insertarHijoIzqdo(nodo n,const T& e);
+        nodo padre(nodo n) const;
+
+        ~Abin() {delete [] elems;}
+
+        size_t num_nodos() const {return numNodos;}
+        bool vacio() const {return numNodos == 0;}
+
     private:
         size_t prof_max,
-               max_nodos;
+               max_nodos,
+               numNodos;
         T* elems;
+
+        bool valido(nodo n) {return n < max_nodos && elems[n] != NODO_NULO;}
 
         int profundidad(nodo n) const;
 };
@@ -69,11 +81,38 @@ template <typename T>
 const typename Abin<T>::nodo Abin<T>::NODO_NULO{std::numeric_limits<nodo>::max()};
 
 template <typename T>
-Abin<T>::Abin(size_t max_prof) : prof_max{max_prof} , max_nodos{size_t(std::pow(2,max_prof + 1)) + 1} , elems{new T[size_t(std::pow(2,max_prof + 1)) + 1]}
+Abin<T>::Abin(size_t max_prof) : prof_max{max_prof} , max_nodos{size_t(std::pow(2,max_prof + 1)) + 1}, numNodos{0} , elems{new T[size_t(std::pow(2,max_prof + 1)) + 1]}
 {
-    for (size_t i = 0; i < max_prof ; ++i) elems[i] = NODO_NULO;
+    for (size_t i = 0; i < max_prof; ++i) elems[i] = NODO_NULO;
 }
 
+template <typename T>
+inline void Abin<T>::insertarRaiz(const T& e) {
+    assert(vacio());
+    elems[max_nodos / 2] = e;
+    numNodos = 1;
+}
 
+template <typename T>
+inline void Abin<T>::insertarHijoIzqdo(nodo n,const T& e) {
+    assert(valido(n));
+    int prof = profundidad(n);
+    assert(prof < prof_max);
+    nodo pos = n - (size_t)std::pow(2,prof + 1);
+    assert(elems[pos] == NODO_NULO);
+    elems[pos] = e;
+}
+
+template <typename T>
+inline typename Abin<T>::nodo Abin<T>::padre(nodo n) const {
+    assert(valido(n));
+    if (n == max_nodos / 2) return NODO_NULO;
+    else {
+        int prof = profundidad(n);
+        bool es_hijizq = n % (nodo)std::pow(2,prof + 2) == (nodo)std::pow(2,prof) - 1;
+        if (es_hijizq) return n + (nodo)std::pow(2,prof);
+        else return n - (nodo)std::pow(2,prof);
+    }
+}
 
 #endif
