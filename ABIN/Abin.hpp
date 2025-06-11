@@ -203,9 +203,9 @@ inline typename Abin<T>::nodo Abin<T>::copiar(nodo n)
         Abin A;
         A.r = new celda{n->elto};
         A.r->hizq = copiar(n->hizq);
-        if (A.r->hizq != NODO_NULO) A.r->hizq->padre = m;
+        if (A.r->hizq != NODO_NULO) A.r->hizq->padre = A.r;
         A.r->hder = copiar(n->hder);
-        if (A.r->hder != NODO_NULO) A.r->hder->padre = m;
+        if (A.r->hder != NODO_NULO) A.r->hder->padre = A.r;
         m = A.r;
         A.r = NODO_NULO;
     }
