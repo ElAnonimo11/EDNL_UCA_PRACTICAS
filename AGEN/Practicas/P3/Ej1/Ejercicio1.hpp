@@ -13,7 +13,7 @@ int gradoAgen_rec(const Agen<T>& A,typename Agen<T>::nodo n)
     int max_grado = 0;
     int grado_act = 0;
     nodo hij = A.hijoIzqdo(n);
-    while(hij != Agen<T>::NODO_NULO) {
+    while (hij != Agen<T>::NODO_NULO) {
         ++grado_act;
         max_grado = std::max(max_grado,gradoAgen_rec(A, hij));
         hij = A.hermDrcho(hij);
