@@ -118,7 +118,7 @@ const Abb<T>& Abb<T>::drcho() const
 }
 
 template <typename T>
-Abb<T>::Abb(const Abb& A) : r{A.r ? new arbol{*A.r} : nullptr} {}
+Abb<T>::Abb(const Abb& A) : r{A.r ? new arbol{*A.r} : nullptr} {}   // La sencillez de la implementacion se debe a que e llamaran recursivamente hasta que no queden elementos el contructor de copia de arbol y Abb
 
 template <typename T>
 Abb<T>& Abb<T>::operator=(const Abb& A)
