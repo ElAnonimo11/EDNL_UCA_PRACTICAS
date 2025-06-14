@@ -37,6 +37,7 @@ int max_diffAgen_rec(const Agen<T>& A,typename Agen<T>::nodo n)
     int alt_max = 0,
         alt_min = std::numeric_limits<int>::max(),
         diff_max = 0;
+    // Miramos las alturas maximas y minimas de los hijos, y la diferencia máxima
     for (typename Agen<T>::nodo hij = A.hijoIzqdo(n); hij != Agen<T>::NODO_NULO ; hij = A.hermDrcho(hij)) {
         int alt_hij = alturaAgen_rec(A, hij);
         alt_max = std::max(alt_max, alt_hij);
