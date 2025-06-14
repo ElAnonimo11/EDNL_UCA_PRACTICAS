@@ -45,6 +45,7 @@ int max_diffAgen_rec(const Agen<T>& A,typename Agen<T>::nodo n)
     }
     return std::max(diff_max, alt_max - alt_min);
 }
+
 template <typename T>
 int max_diffAgen(const Agen<T>& A,typename Agen<T>::nodo n)
 {
