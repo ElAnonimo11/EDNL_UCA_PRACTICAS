@@ -10,8 +10,8 @@ template <typename T>
 int gradoAgen_rec(const Agen<T>& A,typename Agen<T>::nodo n)
 {
     using nodo = typename Agen<T>::nodo;
-    int max_grado = 0;
-    int grado_act = 0;
+    int max_grado = 0,
+        grado_act = 0;
     nodo hij = A.hijoIzqdo(n);
     while (hij != Agen<T>::NODO_NULO) {
         ++grado_act;
