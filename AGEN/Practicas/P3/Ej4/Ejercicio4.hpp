@@ -8,8 +8,8 @@
  * la poda de A a partir de x. Se asume que no hay elementos repetidos en A.
  */
 
-void podaAgen(Agen<int>& A);
-void podaAgen_rec(Agen<int>& A,Agen<int>::nodo n);
+void podaAgen(Agen<int>& A,int elem);
+void podaAgen_rec(Agen<int>& A,Agen<int>::nodo n,int elem);
 
 void podar_Agen(Agen<int>& A,Agen<int>::nodo n);
 
