@@ -13,10 +13,9 @@ template<typename T>
 int prof_nodoAgen(const Agen<T>& A,typename Agen<T>::nodo n)
 {
     assert(n != Agen<T>::NODO_NULO);
-    using nodo = typename Agen<T>::nodo;
-
     int profundidad = 0;
-    for (nodo padre = A.padre(n); padre != Agen<T>::NODO_NULO ; padre = A.padre(padre)) ++profundidad;
+    for (typename Agen<T>::nodo padre = A.padre(n); padre != Agen<T>::NODO_NULO ; padre = A.padre(padre))
+        ++profundidad;
     return profundidad;
 }
 

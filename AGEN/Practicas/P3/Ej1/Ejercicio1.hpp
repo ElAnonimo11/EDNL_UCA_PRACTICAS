@@ -3,6 +3,7 @@
 
 #include "../../../Agen.hpp"
 #include <algorithm>
+#include <cassert>
 
 /*
  * Implementa un subprograma que dado un árbol general nos calcule su grado.
