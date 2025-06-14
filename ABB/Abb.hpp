@@ -1,7 +1,9 @@
 #ifndef _ABB_HPP_
 #define _ABB_HPP_
 #include <cassert>
+#include <cstddef>
 #include <utility>
+#include <vector>
 
 template <typename T>
 class Abb
@@ -18,6 +20,13 @@ class Abb
         Abb(const Abb& A);
         Abb& operator=(const Abb& A);
         ~Abb();
+        /*Ejercicio 1 practica 4 */
+        void podar(const T& e);
+        /*************************/
+
+        /*Ejercicio 2 practica 4 */
+        void equilibrio();
+        /*************************/
     public:
         struct arbol
         {
@@ -27,6 +36,10 @@ class Abb
             ~arbol() = default;
         };
         arbol* r;
+        /*Ejercicio 2 practica 4 */
+        void recorrido_inorden(std::vector<T>& v);
+        void rellenar_Abb(const std::vector<T>& v,int ini,int fin);
+        /*************************/
 };
 
 template <typename T>
@@ -134,5 +147,61 @@ Abb<T>::~Abb()
     delete r;
     r = nullptr;
 }
+
+/*Ejercico 1 practica4 */
+template <typename T>
+void Abb<T>::podar(const T& e)
+{
+    if(!vacio()) {
+        if (e < r->elto) r->izq.podar(e);
+        else if (r->elto < e) r->der.podar(e);
+        else {
+            // Si el elemento es el buscado, eliminamos la raíz
+            delete r;
+            r = nullptr;
+        }
+    }
+}
+/***********************/
+
+/*Ejercicio 2 practica 4 */
+template <typename T>
+void Abb<T>::equilibrio()
+{
+    if (!vacio()) {
+        // Paso de complicarme, uso vector
+        std::vector<T> elems;
+        recorrido_inorden(elems);
+        size_t tam = elems.size();
+        Abb<T> aux;
+        aux.rellenar_Abb(elems, 0, tam);
+        delete r;
+        r = aux.r;
+        aux.r = nullptr;
+    }
+}
+
+template <typename T>
+void Abb<T>::recorrido_inorden(std::vector<T>& v)
+{
+    if (!vacio()) {
+        r->izq.recorrido_inorden(v);
+        v.push_back(r->elto);
+        r->der.recorrido_inorden(v);
+    }
+}
+
+template <typename T>
+void Abb<T>::rellenar_Abb(const std::vector<T>& v,int ini,int fin)
+{
+    if (ini <= fin) {
+        int mid = (fin + ini) / 2;
+        r = new arbol{v[mid]};
+        r->izq.rellenar_Abb(v, ini, mid - 1);
+        r->der.rellenar_Abb(v, mid + 1, fin);
+    }
+}
+/*************************/
+
 
 #endif
