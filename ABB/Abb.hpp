@@ -1,7 +1,7 @@
 #ifndef _ABB_HPP_
 #define _ABB_HPP_
 #include <cassert>
-#include <algorithm>
+#include <utility>
 
 template <typename T>
 class Abb
@@ -15,8 +15,8 @@ class Abb
         const T& elemento() const;
         const Abb& izqdo() const;
         const Abb& drcho() const;
-        Abb(const Abb& A); // Ctor. de copia
-        Abb& operator =(const Abb& A); // Asig. árboles
+        Abb(const Abb& A);
+        Abb& operator=(const Abb& A);
         ~Abb();
     public:
         struct arbol
@@ -96,6 +96,43 @@ template <typename T>void Abb<T>::eliminar(const T& e)
     }
 }
 
+template <typename T>
+const T& Abb<T>::elemento() const
+{
+    assert(!vacio());
+    return r->elto;
+}
 
+template <typename T>
+const Abb<T>& Abb<T>::izqdo() const
+{
+    assert(!vacio());
+    return r->izq;
+}
+
+template <typename T>
+const Abb<T>& Abb<T>::drcho() const
+{
+    assert(!vacio());
+    return r->der;
+}
+
+template <typename T>
+Abb<T>::Abb(const Abb& A) : r{A.r ? new arbol{*A.r} : nullptr} {}
+
+template <typename T>
+Abb<T>& Abb<T>::operator=(const Abb& A)
+{
+    Abb aux{A};
+    std::swap(aux.r,r);
+    return *this;
+}
+
+template <typename T>
+Abb<T>::~Abb()
+{
+    delete r;
+    r = nullptr;
+}
 
 #endif
