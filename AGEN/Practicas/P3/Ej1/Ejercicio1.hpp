@@ -4,7 +4,9 @@
 #include "../../../Agen.hpp"
 #include <algorithm>
 
-/*Implementa un subprograma que dado un árbol general nos calcule su grado.  */
+/*
+ * Implementa un subprograma que dado un árbol general nos calcule su grado.
+ */
 
 template <typename T>
 int gradoAgen_rec(const Agen<T>& A,typename Agen<T>::nodo n)
