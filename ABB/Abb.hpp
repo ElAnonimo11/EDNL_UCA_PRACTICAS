@@ -26,7 +26,26 @@ class Abb
             arbol(const arbol& A) = default;
             ~arbol() = default;
         };
+        arbol* r;
 };
+
+template <typename T>
+Abb<T>::Abb() : r{nullptr} {}
+
+template <typename T>
+bool Abb<T>::vacio() const
+{
+    return r == nullptr;
+}
+
+template <typename T>
+const Abb<T>& Abb<T>::buscar(const T& e) const
+{
+    if (vacio()) return *this;
+    else if (e < r->elto) return r->izq.buscar(e);
+    else if (r->elto < e) return r->der.buscar(e);
+    else return *this;
+}
 
 
 #endif
