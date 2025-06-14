@@ -2,7 +2,6 @@
 #define _EJERCICIO_2_P3_HPP_
 
 #include "../../../Agen.hpp"
-#include <algorithm>
 #include <cassert>
 
 /*
