@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.31)
+project(EDNL_UCA_PRACTICAS)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(ABB)
+include_directories(ABIN)
+include_directories(ABIN/Practicas/P1)
+include_directories(ABIN/Practicas/P1/Ej1)
+include_directories(ABIN/Practicas/P1/Ej2)
+include_directories(ABIN/Practicas/P1/Ej3)
+include_directories(ABIN/Practicas/P1/Ej6)
+include_directories(ABIN/Practicas/P1/Ej7)
+include_directories(ABIN/Practicas/P2/Ej1)
+include_directories(ABIN/Practicas/P2/Ej2)
+include_directories(ABIN/Practicas/P2/Ej3)
+include_directories(ABIN/Practicas/P2/Ej4)
+include_directories(AGEN)
+include_directories(AGEN/Practicas/P3/Ej1)
+include_directories(AGEN/Practicas/P3/Ej2)
+include_directories(AGEN/Practicas/P3/Ej3)
+include_directories(AGEN/Practicas/P3/Ej4)
+
+add_executable(EDNL_UCA_PRACTICAS
+        ABB/Abb.hpp
+        ABB/Conjunto.hpp
+        ABIN/Practicas/P1/Ej1/Ejercicio1.hpp
+        ABIN/Practicas/P1/Ej2/Ejercicio2.hpp
+        ABIN/Practicas/P1/Ej3/Ejercicio3.hpp
+        ABIN/Practicas/P1/Ej6/Ejercicio6.hpp
+        ABIN/Practicas/P1/Ej7/Ejercicio7.hpp
+        ABIN/Practicas/P2/Ej1/Ejercicio1.hpp
+        ABIN/Practicas/P2/Ej2/Ejercicio2.hpp
+        ABIN/Practicas/P2/Ej3/Ejercicio3.cpp
+        ABIN/Practicas/P2/Ej3/Ejercicio3.hpp
+        ABIN/Practicas/P2/Ej4/Ejercicio4.hpp
+        ABIN/Abin.hpp
+        ABIN/abin_E-S.h
+        AGEN/Practicas/P3/Ej1/Ejercicio1.hpp
+        AGEN/Practicas/P3/Ej2/Ejercicio2.hpp
+        AGEN/Practicas/P3/Ej3/Ejercicio3.hpp
+        AGEN/Practicas/P3/Ej4/Ejercicio4.cpp
+        AGEN/Practicas/P3/Ej4/Ejercicio4.hpp
+        AGEN/Agen.hpp
+        AGEN/agen_E-S.h
+        main.cpp)

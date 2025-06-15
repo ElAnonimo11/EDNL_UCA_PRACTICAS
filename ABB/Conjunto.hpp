@@ -53,11 +53,21 @@ void Conjunto<T>::agregar(const T& e)
 }
 
 template <typename T>
+Conjunto<T> Conjunto<T>::unir(const Conjunto<T>& B) const
+{
+    Conjunto<T> aux;
+    for (const T& elem : elementos()) aux.abb.insertar(elem);
+    for (const T& elem : B.elementos()) aux.abb.insertar(elem);
+    aux.abb.equilibrio();
+    return aux;
+}
+
+template <typename T>
 Conjunto<T> Conjunto<T>::interseccion(const Conjunto<T>& B) const
 {
-    Conjunto<T> res;
-    for (const T& elem : elementos()) if (B.pertenencia(elem)) res.agregar(elem);
-    return res;
+    Conjunto<T> aux;
+    for (const T& elem : elementos()) if (!B.abb.buscar(elem).vacio()) abb.insertar(elem);
+    return aux;
 }
 
 #endif
