@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 project(EDNL_UCA_PRACTICAS)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 
 include_directories(ABB)
 include_directories(ABIN)

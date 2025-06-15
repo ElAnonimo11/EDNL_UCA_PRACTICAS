@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-#include <map>
+#include <set>
 
 
 void imprimir_vector_enteros(const std::vector<int>& v)
@@ -33,15 +33,6 @@ int main()
     std::cout << "Elementos rombo: ";
     imprimir_vector_enteros(conj1.rombo(conj2).elementos());
     std::cout << std::endl;
-
-    std::unordered_map<int,int> a;
-    if (a.contains(1))
-    {
-        std::cout << '1';
-    } else
-    {
-        std::cout << "asldankdjs";
-    }
 
     exit(EXIT_SUCCESS);
 }
