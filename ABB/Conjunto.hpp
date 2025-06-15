@@ -78,5 +78,12 @@ Conjunto<T> Conjunto<T>::resta(const Conjunto<T> &B) const
     return aux;
 }
 
+template<typename T>
+Conjunto<T> Conjunto<T>::rombo(const Conjunto &B) const
+{
+    return unir(B).resta(interseccion(B));
+}
+
+
 
 #endif
