@@ -70,4 +70,13 @@ Conjunto<T> Conjunto<T>::interseccion(const Conjunto<T>& B) const
     return aux;
 }
 
+template<typename T>
+Conjunto<T> Conjunto<T>::resta(const Conjunto<T> &B) const
+{
+    Conjunto<T> aux;
+    for (const T& elem : elementos()) if (B.abb.buscar(elem).vacio()) aux.abb.insertar(elem);
+    return aux;
+}
+
+
 #endif
