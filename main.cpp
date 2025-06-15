@@ -11,8 +11,8 @@ void imprimir_vector(const std::vector<int>& v)
 
 int main()
 {
-    Conjunto<int>   conj1({1,2,3,4,5}),
-                    conj2({1,3,5,6,7});
+    const Conjunto<int>     conj1({1,2,3,4,5}),
+                            conj2({1,3,5,6,7});
     std::cout << "Elementos primer conjunto: "; imprimir_vector(conj1.elementos()); std::cout << std::endl;
     std::cout << "Elementos segundo conjunto: "; imprimir_vector(conj2.elementos()); std::cout << std::endl;
     std::cout << "Elementos union: "; imprimir_vector(conj1.unir(conj2).elementos()); std::cout << std::endl;
