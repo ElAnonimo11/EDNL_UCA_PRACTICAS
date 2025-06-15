@@ -44,4 +44,6 @@ add_executable(EDNL_UCA_PRACTICAS
         AGEN/Agen.hpp
         AGEN/agen_E-S.h
         main.cpp
-        APO/apo.hpp)
+        APO/apo.hpp
+        APO/Practicas/P5/Ej1/Ejercicio1.hpp
+        APO/Practicas/P5/Ej1/Ejercicio1.cpp)
