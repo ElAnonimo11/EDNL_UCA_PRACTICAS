@@ -1,17 +1,19 @@
 #ifndef CONJUNTO_HPP_
 #define CONJUNTO_HPP_
 
-#include "Abb.hpp"
-#include <vector>
 #include <initializer_list>
+#include <iostream>
+#include <vector>
+#include "Abb.hpp"
 
+/*He hecho un conjunto general porque me olvide que tenia que ser de enteros xd*/
 template <typename T>
 class Conjunto{
     public:
         Conjunto() = default;
-        Conjunto(const std::initializer_list<T>& list);
-        std::vector<T> elementos();
-        bool pertenencia(const T& e);
+        Conjunto(const std::initializer_list<T> &list);
+        std::vector<T> elementos() const;
+        bool pertenencia(const T& e) const;
         void agregar(const T& e);
         Conjunto unir(const Conjunto& B) const;
         Conjunto interseccion(const Conjunto& B) const;
@@ -21,7 +23,7 @@ class Conjunto{
         Conjunto(const Conjunto &) = default;
         ~Conjunto() = default;
     private:
-        Abb<T> abb;
+        mutable Abb<T> abb;
 };
 
 template <typename T>
@@ -32,7 +34,7 @@ Conjunto<T>::Conjunto(const std::initializer_list<T>& list) : Conjunto()
 }
 
 template <typename T>
-std::vector<T> Conjunto<T>::elementos()
+std::vector<T> Conjunto<T>::elementos() const
 {
     std::vector<T> elems;
     abb.recorrido_inorden(elems);
@@ -40,7 +42,7 @@ std::vector<T> Conjunto<T>::elementos()
 }
 
 template <typename T>
-bool Conjunto<T>::pertenencia(const T& e)
+bool Conjunto<T>::pertenencia(const T& e) const
 {
     return !abb.buscar(e).vacio();
 }
@@ -66,7 +68,7 @@ template <typename T>
 Conjunto<T> Conjunto<T>::interseccion(const Conjunto<T>& B) const
 {
     Conjunto<T> aux;
-    for (const T& elem : elementos()) if (!B.abb.buscar(elem).vacio()) abb.insertar(elem);
+    for (const T& elem : elementos()) if (!B.abb.buscar(elem).vacio()) aux.abb.insertar(elem);
     return aux;
 }
 

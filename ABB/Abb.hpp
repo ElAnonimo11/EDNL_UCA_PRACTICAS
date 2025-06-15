@@ -26,7 +26,7 @@ class Abb
 
         /*Ejercicio 2 practica 4 */
         void equilibrio();
-        void recorrido_inorden(std::vector<T>& v);
+        void recorrido_inorden(std::vector<T> &v) const;
         /*************************/
     private:
         struct arbol
@@ -182,7 +182,7 @@ void Abb<T>::equilibrio()
 }
 
 template <typename T>
-void Abb<T>::recorrido_inorden(std::vector<T>& v)
+void Abb<T>::recorrido_inorden(std::vector<T>& v) const
 {
     if (!vacio()) {
         r->izq.recorrido_inorden(v);

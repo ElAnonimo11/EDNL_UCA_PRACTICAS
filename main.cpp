@@ -1,13 +1,22 @@
-#include "AGEN/Agen.hpp"
-#include "AGEN/agen_E-S.h"
-#include "AGEN/Practicas/P3/Ej1/Ejercicio1.hpp"
+#include "ABB/Conjunto.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <vector>
 
-int main() {
-    Agen<char> A;
-    rellenarAgen(A,'#');
-    std::cout << "El grado del Agen es de " << gradoAgen(A) << "." << std::endl;
-    imprimirAgen(A);
+
+void imprimir_vector(const std::vector<int>& v)
+{
+    for (const int& elem : v) std::cout << elem << " ";
+}
+
+int main()
+{
+    Conjunto<int>   conj1({1,2,3,4,5}),
+                    conj2({1,3,5,6,7});
+    std::cout << "Elementos primer conjunto: "; imprimir_vector(conj1.elementos()); std::cout << std::endl;
+    std::cout << "Elementos segundo conjunto: "; imprimir_vector(conj2.elementos()); std::cout << std::endl;
+    std::cout << "Elementos union: "; imprimir_vector(conj1.unir(conj2).elementos()); std::cout << std::endl;
+    std::cout << "Elementos interseccion: "; imprimir_vector(conj1.interseccion(conj2).elementos()); std::cout << std::endl;
+    std::cout << "Elementos rombo"; imprimir_vector(conj1.rombo(conj2).elementos()); std::cout << std::endl;
     exit(EXIT_SUCCESS);
 }
