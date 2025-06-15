@@ -11,8 +11,7 @@ void imprimir_vector_enteros(const std::vector<int>& v)
 
 int main()
 {
-    const Conjunto<int>     conj1({1,2,3,4,5}),
-                            conj2({1,3,5,6,7});
+    const Conjunto<int> conj1({1, 2, 3, 4, 5}), conj2({1, 3, 5, 6, 7});
     std::cout << "Elementos primer conjunto: ";
     imprimir_vector_enteros(conj1.elementos());
     std::cout << std::endl;
