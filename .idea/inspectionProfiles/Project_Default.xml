@@ -1,0 +1,15 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="ClangTidy" enabled="true" level="WEAK WARNING" enabled_by_default="true" editorAttributes="INFO_ATTRIBUTES">
+      <option name="clangTidyCheckOptions">
+        <list>
+          <ClangTidyCheckOption>
+            <option name="optionName" value="modernize-use-default-member-init.UseAssignment" />
+            <option name="optionValue" value="true" />
+          </ClangTidyCheckOption>
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
