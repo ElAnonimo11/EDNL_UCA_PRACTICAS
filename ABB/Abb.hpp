@@ -26,8 +26,9 @@ class Abb
 
         /*Ejercicio 2 practica 4 */
         void equilibrio();
+        void recorrido_inorden(std::vector<T>& v);
         /*************************/
-    public:
+    private:
         struct arbol
         {
             T elto;
@@ -37,7 +38,6 @@ class Abb
         };
         arbol* r;
         /*Ejercicio 2 practica 4 */
-        void recorrido_inorden(std::vector<T>& v);
         void rellenar_Abb(const std::vector<T>& v,int ini,int fin);
         /*************************/
 };
