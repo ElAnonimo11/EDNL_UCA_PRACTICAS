@@ -7,7 +7,8 @@
 
 /*He hecho un conjunto general porque me olvide que tenia que ser de enteros xd*/
 template <typename T>
-class Conjunto{
+class Conjunto
+{
     public:
         Conjunto() = default;
         Conjunto(const std::initializer_list<T> &list);
