@@ -2,7 +2,6 @@
 #define CONJUNTO_HPP_
 
 #include <initializer_list>
-#include <iostream>
 #include <vector>
 #include "Abb.hpp"
 
