@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-#include <set>
 
 
 void imprimir_vector_enteros(const std::vector<int>& v)
