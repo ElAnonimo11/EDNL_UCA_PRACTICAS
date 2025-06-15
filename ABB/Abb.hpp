@@ -2,7 +2,6 @@
 #define ABB_HPP_
 #include <cassert>
 #include <cstddef>
-#include <utility>
 #include <vector>
 
 template <typename T>
@@ -54,10 +53,9 @@ bool Abb<T>::vacio() const
 template <typename T>
 const Abb<T>& Abb<T>::buscar(const T& e) const
 {
-    if (vacio()) return *this;
-    else if (e < r->elto) return r->izq.buscar(e);
-    else if (r->elto < e) return r->der.buscar(e);
-    else return *this;
+    if (vacio() || r->elto == e)    return *this;
+    else if (e < r->elto)           return r->izq.buscar(e);
+    else                            return r->der.buscar(e);
 }
 
 template <typename T>
@@ -172,7 +170,7 @@ void Abb<T>::equilibrio()
         // Paso de complicarme, uso vector
         std::vector<T> elems;
         recorrido_inorden(elems);
-        size_t tam = elems.size();
+        const size_t tam = elems.size();
         Abb<T> aux;
         aux.rellenar_Abb(elems, 0, tam);
         delete r;
