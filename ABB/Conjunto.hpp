@@ -1,5 +1,5 @@
-#ifndef _CONJUNTO_HPP_
-#define _CONJUNTO_HPP_
+#ifndef CONJUNTO_HPP_
+#define CONJUNTO_HPP_
 
 #include "Abb.hpp"
 #include <vector>

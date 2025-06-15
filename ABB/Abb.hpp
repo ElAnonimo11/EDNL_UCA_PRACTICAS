@@ -1,5 +1,5 @@
-#ifndef _ABB_HPP_
-#define _ABB_HPP_
+#ifndef ABB_HPP_
+#define ABB_HPP_
 #include <cassert>
 #include <cstddef>
 #include <utility>
