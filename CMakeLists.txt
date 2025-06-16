@@ -46,4 +46,14 @@ add_executable(EDNL_UCA_PRACTICAS
         main.cpp
         APO/apo.hpp
         APO/Practicas/P5/Ej1/Ejercicio1.hpp
-        APO/Practicas/P5/Ej1/Ejercicio1.cpp)
+        APO/Practicas/P5/Ej1/Ejercicio1.cpp
+        APO/Apo_min_max.hpp
+        GRAFOS/Contenido/particion.cpp
+        GRAFOS/Contenido/matriz.h
+        GRAFOS/Contenido/alg_grafo_E-S.h
+        GRAFOS/Contenido/alg_grafo_E-S.cpp
+        GRAFOS/Contenido/alg_grafoMA.cpp
+        GRAFOS/Contenido/alg_grafoPMC.h
+        GRAFOS/Contenido/grafoLA.cpp
+        GRAFOS/Contenido/grafoMA.cpp
+        GRAFOS/Contenido/grafoPLA.h)
