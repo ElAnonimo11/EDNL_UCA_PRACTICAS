@@ -56,4 +56,8 @@ add_executable(EDNL_UCA_PRACTICAS
         GRAFOS/Contenido/alg_grafoPMC.h
         GRAFOS/Contenido/grafoLA.cpp
         GRAFOS/Contenido/grafoMA.cpp
-        GRAFOS/Contenido/grafoPLA.h)
+        GRAFOS/Contenido/grafoPLA.h
+        GRAFOS/Practicas/P6/Ej2/Ejercicio2.hpp
+        GRAFOS/Laberinto/Laberinto.hpp
+        GRAFOS/Laberinto/Laberinto.cpp
+)
