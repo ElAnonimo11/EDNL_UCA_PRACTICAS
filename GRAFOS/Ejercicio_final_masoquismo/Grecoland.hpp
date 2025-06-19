@@ -44,6 +44,14 @@ struct Ciudad
 
 double distancia_euclidea(const Ciudad& A,const Ciudad& B);
 
+double coste_min_Grecoland(
+    const Lista<Ciudad>& Ciu_fobos,
+    const Lista<Ciudad>& Ciu_deimos,
+    const Lista<int>& ciu_cost_fobos,
+    const Lista<int>& ciu_cost_deimos,
+    Ciudad orig,
+    Ciudad dest
+    );
 
 
 #endif //GRECOLAND_HPP

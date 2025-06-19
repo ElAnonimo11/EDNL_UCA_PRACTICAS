@@ -14,8 +14,6 @@
 // • la casilla de salida,
 // calcule el camino más corto para ir de la entrada a la salida y su longitud.
 
-#include <vector>
-
 #include "../Contenido/grafoPMC.h"
 #include "../Contenido/listaenla.h"
 
@@ -44,6 +42,6 @@ struct Camino_laberinto
     int longitud;
 };
 
-Camino_laberinto laberinto_paredes(size_t N,Lista<Pared> Paredes,Casilla entr,Casilla sali);
+Camino_laberinto laberinto_paredes(size_t N,const Lista<Pared>& Paredes,Casilla entr,Casilla sali);
 
 #endif //LABERINTO_HPP

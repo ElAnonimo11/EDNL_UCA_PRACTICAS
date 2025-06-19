@@ -4,7 +4,7 @@
 #include "../Contenido/grafoPMC.h"
 #include "../Contenido/alg_grafoPMC.h"
 
-Camino_laberinto laberinto_paredes(size_t N, Lista<Pared> Paredes, Casilla entr, Casilla sali)
+Camino_laberinto laberinto_paredes(size_t N,const Lista<Pared>& Paredes, Casilla entr, Casilla sali)
 {
     const size_t num_cas = N*N;
     GrafoP<int> G(num_cas);
@@ -22,13 +22,13 @@ Camino_laberinto laberinto_paredes(size_t N, Lista<Pared> Paredes, Casilla entr,
     // Ponemos las paredes
     for (auto l = Paredes.primera(); l != Paredes.fin() ; l = Paredes.siguiente(l))
     {
-        auto [ini,fin] = Paredes.elemento(l);
-        int ini_n = casilla_a_nodo(ini,N),
-            fin_n = casilla_a_nodo(fin,N);
+        auto [ini, fin] = Paredes.elemento(l);
+        const int   ini_n = casilla_a_nodo(ini,N),
+                    fin_n = casilla_a_nodo(fin,N);
         G[ini_n][fin_n] = G[fin_n][ini_n] = GrafoP<int>::INFINITO;
     }
     vector<GrafoP<int>::vertice> camino_fin;
-    vector<int> vect_cost = Dijkstra(G,casilla_a_nodo(entr,N),camino_fin);
+    const vector<int> vect_cost = Dijkstra(G,casilla_a_nodo(entr,N),camino_fin);
     return {camino<int>(casilla_a_nodo(entr,N),casilla_a_nodo(sali,N),camino_fin),vect_cost[casilla_a_nodo(sali,N)]};
 }
 
