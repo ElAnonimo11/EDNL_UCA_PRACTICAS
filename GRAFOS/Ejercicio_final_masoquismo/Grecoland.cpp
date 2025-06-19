@@ -68,7 +68,48 @@ double coste_min_Grecoland(
                 carr_max = std::max(carr_max,elem);
         }
     }
-    // Para calcular las carreteras, recorremos todas las ciudades costeras
+    // Para calcular las carreteras, recorremos todas las ciudades costeras y a los puentes les sumamos la maxima carretera a todos los puentes
+    for (auto l = ciu_cost_fobos.primera(); l != ciu_cost_fobos.fin() ; l = ciu_cost_fobos.siguiente(l))
+    {
+        const int i = ciu_cost_fobos.elemento(l);
+        for (auto t = ciu_cost_deimos.primera(); t != ciu_cost_deimos.fin() ; t = ciu_cost_deimos.siguiente(l))
+        {
+            const int ind_fei = ciu_cost_deimos.elemento(t);
+            const int j = ind_fei + static_cast<int>(num_fob);
+            Ciudad prim = fobos[i];
+            Ciudad segu = deimo[ind_fei];
+            Grecoland[i][j] = Grecoland[j][i] = distancia_euclidea(prim,segu) + carr_max;
+        }
+    }
+    // Vemos las posiciones en el grafo de las ciudades
+    size_t  ind_orig = 0,
+            ind_fini = 0;
+    for (size_t i = 0; i < num_fob ; ++i)
+    {
+        Ciudad ciu = fobos[i];
+        if (orig == ciu)
+        {
+            ind_orig = i;
+        }
+        if (dest == ciu)
+        {
+            ind_fini = i;
+        }
+    }
+    for (size_t i = 0; i < num_dei ; ++i)
+    {
+        Ciudad ciu = deimo[i];
+        if (orig == ciu)
+        {
+            ind_orig = i + num_fob;
+        }
+        if (dest == ciu)
+        {
+            ind_fini = i + num_fob;
+        }
+    }
+    // Devolvemos el camino de coste minimo entre las ciudades
+    return Dijkstra(Grecoland,ind_orig,auto())[ind_fini];
 }
 
 // Funciones auxiliares

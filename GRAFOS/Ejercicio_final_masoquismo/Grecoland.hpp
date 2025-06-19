@@ -38,8 +38,11 @@
 // Estructura para guardar las ciudades
 struct Ciudad
 {
-    int x,
-        y;
+    int x, y;
+    bool operator==(const Ciudad & ciu) const
+    {
+        return x == ciu.x && y == ciu.y;
+    }
 };
 
 double distancia_euclidea(const Ciudad& A,const Ciudad& B);
