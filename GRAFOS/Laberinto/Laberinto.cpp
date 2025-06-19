@@ -23,9 +23,9 @@ Camino_laberinto laberinto_paredes(size_t N, Lista<Pared> Paredes, Casilla entr,
     for (auto l = Paredes.primera(); l != Paredes.fin() ; l = Paredes.siguiente(l))
     {
         auto [ini,fin] = Paredes.elemento(l);
-        int ini_c = casilla_a_nodo(ini,N),
-            fin_c = casilla_a_nodo(fin,N);
-        G[ini_c][fin_c] = G[fin_c][ini_c] = GrafoP<int>::INFINITO;
+        int ini_n = casilla_a_nodo(ini,N),
+            fin_n = casilla_a_nodo(fin,N);
+        G[ini_n][fin_n] = G[fin_n][ini_n] = GrafoP<int>::INFINITO;
     }
     vector<GrafoP<int>::vertice> camino_fin;
     vector<int> vect_cost = Dijkstra(G,casilla_a_nodo(entr,N),camino_fin);

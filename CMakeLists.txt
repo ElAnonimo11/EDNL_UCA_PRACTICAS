@@ -60,4 +60,6 @@ add_executable(EDNL_UCA_PRACTICAS
         GRAFOS/Practicas/P6/Ej2/Ejercicio2.hpp
         GRAFOS/Laberinto/Laberinto.hpp
         GRAFOS/Laberinto/Laberinto.cpp
+        GRAFOS/Ejercicio_final_masoquismo/Grecoland.hpp
+        GRAFOS/Ejercicio_final_masoquismo/Grecoland.cpp
 )
