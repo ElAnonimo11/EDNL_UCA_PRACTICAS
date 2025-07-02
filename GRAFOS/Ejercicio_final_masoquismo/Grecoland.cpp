@@ -11,8 +11,8 @@ double coste_min_Grecoland(
     const Lista<Ciudad>& Ciu_deimos,
     const Lista<int>& ciu_cost_fobos,
     const Lista<int>& ciu_cost_deimos,
-    Ciudad orig,
-    Ciudad dest
+    const Ciudad orig,
+    const Ciudad dest
     )
 {
     std::vector<Ciudad> fobos,
